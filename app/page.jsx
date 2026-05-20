@@ -54,6 +54,11 @@ const reviews = [
   ],
 ];
 
+function isValidKazakhstanPhone(value) {
+  const digits = String(value || "").replace(/\D/g, "");
+  return /^7\d{10}$/.test(digits) || /^8\d{10}$/.test(digits);
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitState, setSubmitState] = useState("idle");
@@ -66,6 +71,12 @@ export default function Home() {
     event.preventDefault();
     const form = event.currentTarget;
     const formData = new FormData(form);
+    const phone = formData.get("phone");
+
+    if (!isValidKazakhstanPhone(phone)) {
+      setSubmitState("phone-error");
+      return;
+    }
 
     setSubmitState("loading");
 
@@ -322,7 +333,18 @@ export default function Home() {
               </label>
               <label>
                 Телефон
-                <input type="tel" name="phone" placeholder="+7 ___ ___ __ __" required />
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="+7 ___ ___ __ __"
+                  aria-invalid={submitState === "phone-error"}
+                  onChange={() => {
+                    if (submitState === "phone-error") {
+                      setSubmitState("idle");
+                    }
+                  }}
+                  required
+                />
               </label>
               <label>
                 Формат бизнеса
@@ -350,6 +372,9 @@ export default function Home() {
                 <p className="form-status error">
                   Не получилось отправить заявку. Попробуйте позже или напишите в WhatsApp.
                 </p>
+              ) : null}
+              {submitState === "phone-error" ? (
+                <p className="form-status error">не правильно введен номер</p>
               ) : null}
               <p className="form-note">
                 Нажимая кнопку, вы соглашаетесь на обработку данных для ответа на заявку.

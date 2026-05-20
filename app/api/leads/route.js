@@ -14,6 +14,11 @@ function escapeHtml(value) {
     .replace(/>/g, "&gt;");
 }
 
+function isValidKazakhstanPhone(value) {
+  const digits = String(value || "").replace(/\D/g, "");
+  return /^7\d{10}$/.test(digits) || /^8\d{10}$/.test(digits);
+}
+
 export async function POST(request) {
   const botToken = process.env.TELEGRAM_BOT_TOKEN;
   const chatId = process.env.TELEGRAM_CHAT_ID;
@@ -41,6 +46,10 @@ export async function POST(request) {
 
   if (!lead.name || !lead.phone) {
     return NextResponse.json({ error: "Name and phone are required." }, { status: 400 });
+  }
+
+  if (!isValidKazakhstanPhone(lead.phone)) {
+    return NextResponse.json({ error: "не правильно введен номер" }, { status: 400 });
   }
 
   const text = [
