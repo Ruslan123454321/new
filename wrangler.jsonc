@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "bersetov-accounting",
+  "account_id": "6fa591913093bff2a87f1499aef3cbcd",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-05-19",
   "compatibility_flags": [
