@@ -144,7 +144,7 @@ export default function Home() {
 
             <div className="header-actions">
               <a className="phone" href="tel:+77001234567">
-                +7 700 123 45 67
+                +7 777 697 09 05
               </a>
               <a className="header-button" href="#contacts" onClick={closeMenu}>
                 Обсудить учет
@@ -180,7 +180,7 @@ export default function Home() {
               <span className="panel-kicker">Экспресс-оценка</span>
               <strong>15 минут</strong>
               <p>на первичный разбор задач и примерный бюджет сопровождения</p>
-              <a href="https://wa.me/77001234567" target="_blank" rel="noreferrer">
+              <a href="https://wa.me/7776970905" target="_blank" rel="noreferrer">
                 Написать в WhatsApp
               </a>
             </aside>
