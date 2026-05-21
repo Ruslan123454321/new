@@ -872,11 +872,74 @@ h3 {
 
   .reviews-summary {
     grid-template-columns: 1fr;
-    gap: 8px;
+    gap: 4px;
+    margin-bottom: 14px;
+    padding: 16px;
+  }
+
+  .reviews-summary strong {
+    font-size: 34px;
+  }
+
+  .reviews-summary span {
+    font-size: 16px;
+  }
+
+  .reviews-summary p {
+    font-size: 13px;
   }
 
   .reviews-summary p {
     justify-self: start;
+  }
+
+  .reviews-top {
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .reviews-top .section-heading {
+    margin-bottom: 0;
+  }
+
+  .reviews-top .section-heading p {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  .reviews-source {
+    min-height: 42px;
+    width: 100%;
+    padding: 0 14px;
+    font-size: 14px;
+  }
+
+  .review-grid {
+    gap: 12px;
+  }
+
+  .review-grid blockquote {
+    padding: 18px 18px 18px 20px;
+  }
+
+  .review-card-head {
+    display: grid;
+    gap: 4px;
+    margin-bottom: 12px;
+  }
+
+  .review-grid p {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .review-grid cite {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+
+  .mobile-hidden-review {
+    display: none;
   }
 
   .service-card {

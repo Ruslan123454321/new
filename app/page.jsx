@@ -336,8 +336,8 @@ export default function Home() {
             </div>
 
             <div className="review-grid">
-              {reviews.map((review) => (
-                <blockquote key={review.author}>
+              {reviews.map((review, index) => (
+                <blockquote className={index > 2 ? "mobile-hidden-review" : ""} key={review.author}>
                   <div className="review-card-head">
                     <span>{review.label}</span>
                     <small>{review.date}</small>
