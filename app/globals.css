@@ -499,6 +499,57 @@ h3 {
   background: var(--white);
 }
 
+.reviews-top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 28px;
+  margin-bottom: 28px;
+}
+
+.reviews-source {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  border-radius: 8px;
+  padding: 0 18px;
+  color: var(--teal-dark);
+  border: 1px solid rgba(15, 118, 110, 0.24);
+  font-weight: 800;
+}
+
+.reviews-summary {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 22px 24px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #102a30, #0c4b49);
+  color: var(--white);
+}
+
+.reviews-summary strong {
+  font-size: 44px;
+  line-height: 1;
+}
+
+.reviews-summary span {
+  color: #d4ad61;
+  font-size: 20px;
+  letter-spacing: 0;
+}
+
+.reviews-summary p {
+  justify-self: end;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
 .review-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -508,6 +559,37 @@ h3 {
 .review-grid blockquote {
   margin: 0;
   padding: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.review-grid blockquote::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 4px;
+  background: var(--coral);
+}
+
+.review-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.review-card-head span {
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.review-card-head small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .review-grid p {
@@ -722,6 +804,11 @@ h3 {
   .guarantee-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .reviews-top {
+    align-items: start;
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 640px) {
@@ -781,6 +868,15 @@ h3 {
   .review-grid,
   .guarantee-list {
     grid-template-columns: 1fr;
+  }
+
+  .reviews-summary {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .reviews-summary p {
+    justify-self: start;
   }
 
   .service-card {

@@ -39,19 +39,46 @@ const services = [
   },
 ];
 
+const reviewsSourceUrl =
+  "https://2gis.kz/almaty/search/%D0%B1%D1%83%D1%85%D0%B3%D0%B0%D0%BB%D1%82%D0%B5%D1%80%D0%B8%D1%8F/rubricId/653/firm/70000001110395312/tab/reviews?m=76.859859%2C43.247132%2F19.22";
+
 const reviews = [
-  [
-    "После передачи учета мы перестали ловить сроки вручную. Команда быстро отвечает и объясняет без сложных терминов.",
-    "Алия, розничная сеть",
-  ],
-  [
-    "Помогли восстановить базу и подготовиться к проверке. Понравилось, что все шаги были в понятном плане.",
-    "Данияр, сервисная компания",
-  ],
-  [
-    "Стоимость понятная, отчеты приходят вовремя, по налогам заранее предупреждают. Для малого бизнеса это важно.",
-    "Марина, производственная мастерская",
-  ],
+  {
+    author: "Enk ..",
+    date: "20 мая 2026",
+    label: "Подтвержденный отзыв",
+    text: "Клиент коротко отмечает отличную работу компании после посещения.",
+  },
+  {
+    author: "700 ADM",
+    date: "27 февраля 2026",
+    label: "Рекомендация",
+    text: "Отзыв выделяет быстрый и четкий результат, компанию рекомендуют другим предпринимателям.",
+  },
+  {
+    author: "Nursat Kenesbek",
+    date: "25 февраля 2026",
+    label: "Отчеты и уведомления",
+    text: "Клиент благодарит за помощь с отчетами и подготовкой уведомления.",
+  },
+  {
+    author: "Leshka Kaleshka",
+    date: "13 января 2026",
+    label: "Аутсорсинг учета",
+    text: "После перехода на сопровождение команда помогла навести порядок и оптимизировать налоговую нагрузку.",
+  },
+  {
+    author: "Алексей Егоров",
+    date: "13 января 2026",
+    label: "Ответственные бухгалтеры",
+    text: "Клиент отмечает четкую работу и профессиональный подход бухгалтеров.",
+  },
+  {
+    author: "Перизат Кенжетаева",
+    date: "9 января 2026",
+    label: "Консультации",
+    text: "В отзыве отмечены грамотные консультации, связь с командой и понятные объяснения по налогам.",
+  },
 ];
 
 function isValidKazakhstanPhone(value) {
@@ -119,7 +146,7 @@ export default function Home() {
         <div className="header-shell">
           <a className="brand" href="#top" aria-label="PA Finance" onClick={closeMenu}>
             <img className="brand-logo" src="/assets/logo-pa.png" alt="PA Finance" />
-            <span className="brand-name">Bersetov accounting</span>
+            <span className="brand-name">Berestova accounting</span>
           </a>
 
           <button
@@ -144,7 +171,7 @@ export default function Home() {
 
             <div className="header-actions">
               <a className="phone" href="tel:+77776970905">
-                +7 777 697 09 
+                +7 777 697 09 05
               </a>
               <a className="header-button" href="#contacts" onClick={closeMenu}>
                 Обсудить учет
@@ -289,15 +316,34 @@ export default function Home() {
 
         <section className="reviews section" id="reviews">
           <div className="section-shell">
-            <div className="section-heading compact">
-              <p className="eyebrow dark">Отзывы</p>
-              <h2>Клиенты ценят предсказуемость</h2>
+            <div className="reviews-top">
+              <div className="section-heading compact">
+                <p className="eyebrow dark">Отзывы 2GIS</p>
+                <h2>Клиенты отмечают четкую работу и поддержку</h2>
+                <p>
+                  По данным карточки компании на 2GIS: рейтинг 5.0, 10 оценок и 11 отзывов.
+                </p>
+              </div>
+              <a className="reviews-source" href={reviewsSourceUrl} target="_blank" rel="noreferrer">
+                Смотреть на 2GIS
+              </a>
             </div>
+
+            <div className="reviews-summary" aria-label="Рейтинг 2GIS">
+              <strong>5.0</strong>
+              <span>★★★★★</span>
+              <p>10 оценок · 11 отзывов</p>
+            </div>
+
             <div className="review-grid">
-              {reviews.map(([quote, author]) => (
-                <blockquote key={author}>
-                  <p>{quote}</p>
-                  <cite>{author}</cite>
+              {reviews.map((review) => (
+                <blockquote key={review.author}>
+                  <div className="review-card-head">
+                    <span>{review.label}</span>
+                    <small>{review.date}</small>
+                  </div>
+                  <p>{review.text}</p>
+                  <cite>{review.author}</cite>
                 </blockquote>
               ))}
             </div>
