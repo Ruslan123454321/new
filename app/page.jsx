@@ -86,6 +86,38 @@ function isValidKazakhstanPhone(value) {
   return /^7\d{10}$/.test(digits) || /^8\d{10}$/.test(digits);
 }
 
+function PhoneIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1 .3 2 .5 3.1.5.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C10.2 21.5 2.5 13.8 2.5 4.3 2.5 3.6 3.1 3 3.8 3h3.5c.7 0 1.3.6 1.3 1.3 0 1.1.2 2.1.5 3.1.1.4 0 .9-.3 1.2l-2.2 2.2Z" />
+    </svg>
+  );
+}
+
+function PinIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2.5a7.3 7.3 0 0 0-7.3 7.3c0 5.1 7.3 11.7 7.3 11.7s7.3-6.6 7.3-11.7A7.3 7.3 0 0 0 12 2.5Zm0 10.1a2.8 2.8 0 1 1 0-5.6 2.8 2.8 0 0 1 0 5.6Z" />
+    </svg>
+  );
+}
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M4.3 5h15.4c1 0 1.8.8 1.8 1.8v10.4c0 1-.8 1.8-1.8 1.8H4.3c-1 0-1.8-.8-1.8-1.8V6.8C2.5 5.8 3.3 5 4.3 5Zm7.7 7.2 7-4.9H5l7 4.9Zm0 2.5L4.5 9.4v7.1h15V9.4L12 14.7Z" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 2.5A9.4 9.4 0 0 0 4 16.8l-1 4.7 4.8-1A9.4 9.4 0 1 0 12 2.5Zm0 2A7.4 7.4 0 0 1 19.4 12 7.4 7.4 0 0 1 8.1 18.3l-.4-.2-2.1.5.5-2.1-.3-.4A7.4 7.4 0 0 1 12 4.5Zm-3.1 3.9c-.2 0-.5.1-.7.4-.2.3-.9.9-.9 2.1 0 1.2.9 2.4 1 2.5.1.2 1.7 2.8 4.3 3.8 2.1.8 2.6.6 3 .6.5 0 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.5-.4l-1.7-.8c-.2-.1-.4-.1-.6.1-.2.3-.7.8-.8 1-.2.2-.3.2-.6.1-.3-.1-1.1-.4-2-1.3-.8-.7-1.3-1.6-1.4-1.9-.2-.3 0-.4.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.8-1.8c-.2-.4-.4-.4-.6-.4h-.4Z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitState, setSubmitState] = useState("idle");
@@ -144,8 +176,8 @@ export default function Home() {
           onClick={closeMenu}
         />
         <div className="header-shell">
-          <a className="brand" href="#top" aria-label="PA Finance" onClick={closeMenu}>
-            <img className="brand-logo" src="/assets/logo-pa.png" alt="PA Finance" />
+          <a className="brand" href="#top" aria-label="Berestova accounting" onClick={closeMenu}>
+            <img className="brand-logo" src="/assets/logo-pa.png" alt="Berestova accounting" />
             <span className="brand-name">Berestova accounting</span>
           </a>
 
@@ -207,7 +239,15 @@ export default function Home() {
               <span className="panel-kicker">Экспресс-оценка</span>
               <strong>15 минут</strong>
               <p>на первичный разбор задач и примерный бюджет сопровождения</p>
-              <a href="https://wa.me/7776970905" target="_blank" rel="noreferrer">
+              <a
+                className="contact-button whatsapp-button"
+                href="https://wa.me/7776970905"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="button-icon">
+                  <WhatsAppIcon />
+                </span>
                 Написать в WhatsApp
               </a>
             </aside>
@@ -217,7 +257,7 @@ export default function Home() {
         <section className="stats section" id="about">
           <div className="section-shell stats-grid">
             <div>
-              <p className="eyebrow dark">Tandau Finance</p>
+              <p className="eyebrow dark">Berestova accounting</p>
               <h2>Спокойная бухгалтерия без лишней бюрократии</h2>
             </div>
             <article>
@@ -321,7 +361,7 @@ export default function Home() {
                 <p className="eyebrow dark">Отзывы 2GIS</p>
                 <h2>Клиенты отмечают четкую работу и поддержку</h2>
                 <p>
-                  По данным карточки компании на 2GIS: рейтинг 5.0, 102 оценок и 34 отзывов.
+                  По данным карточки компании на 2GIS: рейтинг 5.0 
                 </p>
               </div>
               <a className="reviews-source" href={reviewsSourceUrl} target="_blank" rel="noreferrer">
@@ -332,7 +372,6 @@ export default function Home() {
             <div className="reviews-summary" aria-label="Рейтинг 2GIS">
               <strong>5.0</strong>
               <span>★★★★★</span>
-              <p>102 оценок · 34 отзывов</p>
             </div>
 
             <div className="review-grid">
@@ -360,15 +399,42 @@ export default function Home() {
                 можно подключить к CRM, почте или WhatsApp.
               </p>
               <div className="contact-card">
-                <a href="tel:+77776970905">+7 777 697 09 05</a>
-                <span>Алматы, Тастак 1 дом 11</span>
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=example@gmail.com&su=Запрос%20на%20бухгалтерию&body=Здравствуйте%2C%20я%20хочу%20обсудить%20сопровождение."
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Написать в Gmail
+                <a className="contact-line" href="tel:+77776970905">
+                  <span className="contact-icon">
+                    <PhoneIcon />
+                  </span>
+                  <span>+7 777 697 09 05</span>
                 </a>
+                <span className="contact-line">
+                  <span className="contact-icon">
+                    <PinIcon />
+                  </span>
+                  <span>Алматы, Тастак 1 дом 11</span>
+                </span>
+                <div className="contact-buttons">
+                  <a
+                    className="contact-button whatsapp-button"
+                    href="https://wa.me/7776970905"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="button-icon">
+                      <WhatsAppIcon />
+                    </span>
+                    Написать в WhatsApp
+                  </a>
+                  <a
+                    className="contact-button gmail-button"
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=example@gmail.com&su=Запрос%20на%20бухгалтерию&body=Здравствуйте%2C%20я%20хочу%20обсудить%20сопровождение."
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="button-icon">
+                      <MailIcon />
+                    </span>
+                    Написать в Gmail
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -432,7 +498,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="section-shell footer-shell">
-          <span>© 2026 Tandau Finance</span>
+          <span>© 2026 Berestov accounting</span>
           <a href="#top">Наверх</a>
         </div>
       </footer>

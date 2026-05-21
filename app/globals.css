@@ -289,8 +289,7 @@ a {
 }
 
 .hero-panel a {
-  color: var(--white);
-  font-weight: 800;
+  margin-top: 18px;
 }
 
 .section {
@@ -522,7 +521,8 @@ h3 {
 
 .reviews-summary {
   display: grid;
-  grid-template-columns: auto auto 1fr;
+  grid-template-columns: auto auto;
+  justify-content: center;
   align-items: center;
   gap: 16px;
   margin-bottom: 22px;
@@ -629,10 +629,74 @@ h3 {
 
 .contact-card {
   display: grid;
-  gap: 12px;
+  gap: 14px;
   margin-top: 32px;
   color: var(--white);
   font-weight: 800;
+}
+
+.contact-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+}
+
+.contact-icon,
+.button-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  color: #9be7dc;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.contact-icon svg,
+.button-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.contact-button {
+  min-height: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  padding: 0 18px;
+  color: var(--white);
+  font-weight: 800;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 42px rgba(0, 0, 0, 0.22);
+}
+
+.whatsapp-button {
+  background: linear-gradient(135deg, #1fae66, #0f8f5d);
+}
+
+.gmail-button {
+  background: linear-gradient(135deg, var(--coral), #d94b3d);
 }
 
 .lead-form {
@@ -945,6 +1009,18 @@ h3 {
 
   .mobile-hidden-review {
     display: none;
+  }
+
+  .contact-line {
+    align-items: flex-start;
+  }
+
+  .contact-buttons {
+    display: grid;
+  }
+
+  .contact-button {
+    width: 100%;
   }
 
   .service-card {
