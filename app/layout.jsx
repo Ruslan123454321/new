@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://berestova.kz"),
-  title: "Berestova accounting | Бухгалтерские услуги в Алматы",
+  title: "Бухгалтерские услуги в Алматы | Ведение ТОО и ИП",
   description:
     "Бухгалтерское сопровождение ИП и ТОО в Алматы: налоговые консультации, отчетность, декларации, зарплата, первичные документы и восстановление учета.",
   keywords: [
