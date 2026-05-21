@@ -53,7 +53,7 @@ export async function POST(request) {
   }
 
   const text = [
-    "<b>Новая заявка с сайта Tandau Finance</b>",
+    "<b>Новая заявка с сайта Berestova accounting</b>",
     "",
     `<b>Имя:</b> ${escapeHtml(lead.name)}`,
     `<b>Телефон:</b> ${escapeHtml(lead.phone)}`,
