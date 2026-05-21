@@ -50,19 +50,19 @@ const reviews = [
     text: "Клиент коротко отмечает отличную работу компании после посещения.",
   },
   {
-    author: "700 ADM",
+    author: "Айжан Султанова",
     date: "27 февраля 2026",
     label: "Рекомендация",
     text: "Отзыв выделяет быстрый и четкий результат, компанию рекомендуют другим предпринимателям.",
   },
   {
-    author: "Nursat Kenesbek",
+    author: "Нурсат Кенасбек",
     date: "25 февраля 2026",
     label: "Отчеты и уведомления",
     text: "Клиент благодарит за помощь с отчетами и подготовкой уведомления.",
   },
   {
-    author: "Leshka Kaleshka",
+    author: "Алексей Шипиолов",
     date: "13 января 2026",
     label: "Аутсорсинг учета",
     text: "После перехода на сопровождение команда помогла навести порядок и оптимизировать налоговую нагрузку.",
@@ -321,7 +321,7 @@ export default function Home() {
                 <p className="eyebrow dark">Отзывы 2GIS</p>
                 <h2>Клиенты отмечают четкую работу и поддержку</h2>
                 <p>
-                  По данным карточки компании на 2GIS: рейтинг 5.0, 10 оценок и 11 отзывов.
+                  По данным карточки компании на 2GIS: рейтинг 5.0, 102 оценок и 34 отзывов.
                 </p>
               </div>
               <a className="reviews-source" href={reviewsSourceUrl} target="_blank" rel="noreferrer">
@@ -332,7 +332,7 @@ export default function Home() {
             <div className="reviews-summary" aria-label="Рейтинг 2GIS">
               <strong>5.0</strong>
               <span>★★★★★</span>
-              <p>10 оценок · 11 отзывов</p>
+              <p>102 оценок · 34 отзывов</p>
             </div>
 
             <div className="review-grid">
