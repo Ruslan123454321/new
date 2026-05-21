@@ -143,8 +143,8 @@ export default function Home() {
             </nav>
 
             <div className="header-actions">
-              <a className="phone" href="tel:+77001234567">
-                +7 777 697 09 05
+              <a className="phone" href="tel:+77776970905">
+                +7 777 697 09 
               </a>
               <a className="header-button" href="#contacts" onClick={closeMenu}>
                 Обсудить учет
