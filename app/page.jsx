@@ -430,7 +430,7 @@ export default function Home() {
                   </a>
                   <a
                     className="contact-button gmail-button"
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=example@gmail.com&su=Запрос%20на%20бухгалтерию&body=Здравствуйте%2C%20я%20хочу%20обсудить%20сопровождение."
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=anita999-123@list.ru&su=Запрос%20на%20бухгалтерию&body=Здравствуйте%2C%20я%20хочу%20обсудить%20сопровождение."
                     target="_blank"
                     rel="noreferrer"
                   >
