@@ -405,12 +405,17 @@ export default function Home() {
                   </span>
                   <span>+7 777 697 09 05</span>
                 </a>
-                <span className="contact-line">
+                <a
+                  className="contact-line"
+                  href="https://go.2gis.com/rWbcB"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="contact-icon">
                     <PinIcon />
                   </span>
                   <span>Алматы, Тастак 1 дом 11</span>
-                </span>
+                </a>
                 <div className="contact-buttons">
                   <a
                     className="contact-button whatsapp-button"
