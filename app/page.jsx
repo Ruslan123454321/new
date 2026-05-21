@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const navItems = [
   ["О нас", "#about"],
@@ -121,9 +121,49 @@ function WhatsAppIcon() {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [submitState, setSubmitState] = useState("idle");
+  const menuToggleRef = useRef(null);
+  const navPanelRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) {
+      return undefined;
+    }
+
+    function handleOutsideMenuInteraction(event) {
+      const target = event.target;
+
+      if (navPanelRef.current?.contains(target) || menuToggleRef.current?.contains(target)) {
+        return;
+      }
+
+      closeMenu();
+    }
+
+    document.addEventListener("pointerdown", handleOutsideMenuInteraction);
+    document.addEventListener("click", handleOutsideMenuInteraction);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleOutsideMenuInteraction);
+      document.removeEventListener("click", handleOutsideMenuInteraction);
+    };
+  }, [menuOpen]);
 
   function closeMenu() {
     setMenuOpen(false);
+  }
+
+  function scrollToTop(event) {
+    event.preventDefault();
+    closeMenu();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function closeMenuFromPanelBlank(event) {
+    if (event.target.closest("a, button")) {
+      return;
+    }
+
+    closeMenu();
   }
 
   async function handleSubmit(event) {
@@ -169,21 +209,31 @@ export default function Home() {
   return (
     <>
       <header className={`site-header ${menuOpen ? "is-open" : ""}`} id="top">
-        <button
-          className="menu-scrim"
-          type="button"
-          aria-label="Закрыть меню"
-          onClick={closeMenu}
-        />
+        {menuOpen ? (
+          <div
+            className="menu-scrim"
+            aria-hidden="true"
+            role="presentation"
+            onClick={closeMenu}
+            onPointerDown={closeMenu}
+          />
+        ) : null}
         <div className="header-shell">
-          <a className="brand" href="#top" aria-label="Berestova accounting" onClick={closeMenu}>
-            <img className="brand-logo" src="/assets/logo-pa.png" alt="Berestova accounting" />
+          <a className="brand" href="#top" aria-label="Berestova accounting" onClick={scrollToTop}>
+            <img
+              className="brand-logo"
+              src="/assets/logo-pa.png"
+              alt="Berestova accounting"
+              width="82"
+              height="64"
+            />
             <span className="brand-name">Berestova accounting</span>
           </a>
 
           <button
             className="menu-toggle"
             type="button"
+            ref={menuToggleRef}
             aria-label={menuOpen ? "Закрыть меню" : "Открыть меню"}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
@@ -192,7 +242,7 @@ export default function Home() {
             <span />
           </button>
 
-          <div className="nav-panel">
+          <div className="nav-panel" ref={navPanelRef} onClick={closeMenuFromPanelBlank}>
             <nav className="nav" aria-label="Основная навигация">
               {navItems.map(([label, href]) => (
                 <a href={href} key={href} onClick={closeMenu}>
@@ -446,15 +496,24 @@ export default function Home() {
             <form className="lead-form" onSubmit={handleSubmit}>
               <label>
                 Имя
-                <input type="text" name="name" placeholder="Как к вам обращаться" required />
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Как к вам обращаться…"
+                  autoComplete="name"
+                  required
+                />
               </label>
               <label>
                 Телефон
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="+7 ___ ___ __ __"
+                  placeholder="+7 ___ ___ __ __…"
+                  autoComplete="tel"
+                  inputMode="tel"
                   aria-invalid={submitState === "phone-error"}
+                  aria-describedby={submitState === "phone-error" ? "phone-error" : undefined}
                   onChange={() => {
                     if (submitState === "phone-error") {
                       setSubmitState("idle");
@@ -476,22 +535,26 @@ export default function Home() {
                 <textarea
                   name="message"
                   rows="4"
-                  placeholder="Например: нужна ежемесячная бухгалтерия"
+                  placeholder="Например: нужна ежемесячная бухгалтерия…"
                 />
               </label>
               <button className="primary-button" type="submit" disabled={isSubmitting}>
-                {isSubmitting ? "Отправляем..." : "Отправить заявку"}
+                {isSubmitting ? "Отправляем…" : "Отправить заявку"}
               </button>
               {submitState === "success" ? (
-                <p className="form-status success">Заявка отправлена. Мы скоро свяжемся с вами.</p>
+                <p className="form-status success" role="status" aria-live="polite">
+                  Заявка отправлена. Мы скоро свяжемся с вами.
+                </p>
               ) : null}
               {submitState === "error" ? (
-                <p className="form-status error">
+                <p className="form-status error" role="status" aria-live="polite">
                   Не получилось отправить заявку. Попробуйте позже или напишите в WhatsApp.
                 </p>
               ) : null}
               {submitState === "phone-error" ? (
-                <p className="form-status error">не правильно введен номер</p>
+                <p className="form-status error" id="phone-error" role="status" aria-live="polite">
+                  Неправильно введен номер.
+                </p>
               ) : null}
               <p className="form-note">
                 Нажимая кнопку, вы соглашаетесь на обработку данных для ответа на заявку.
@@ -503,7 +566,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="section-shell footer-shell">
-          <span>© 2026 Berestov accounting</span>
+          <span>© 2026 Berestova accounting</span>
           <a href="#top">Наверх</a>
         </div>
       </footer>

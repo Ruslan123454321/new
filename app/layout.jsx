@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Tandau Finance | Бухгалтерское сопровождение",
+  title: "Berestova accounting | Бухгалтерское сопровождение",
   description:
     "Бухгалтерское сопровождение, налоговые консультации и восстановление учета для малого и среднего бизнеса в Казахстане.",
 };
