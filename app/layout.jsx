@@ -1,7 +1,11 @@
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://berestova.kz";
+const heroImageUrl = `${siteUrl}/assets/hero-consulting.png`;
+const logoImageUrl = `${siteUrl}/assets/logo-pa.png`;
+
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://berestova.kz"),
+  metadataBase: new URL(siteUrl),
   title: "Бухгалтерские услуги в Алматы | Ведение ТОО и ИП",
   description:
     "Бухгалтерское сопровождение ИП и ТОО в Алматы: налоговые консультации, отчетность, декларации, зарплата, первичные документы и восстановление учета.",
@@ -30,6 +34,13 @@ export const metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      maxImagePreview: "large",
+      maxSnippet: -1,
+      maxVideoPreview: -1,
+    },
   },
   alternates: {
     canonical: "/",
@@ -38,6 +49,7 @@ export const metadata = {
     title: "Berestova accounting | Бухгалтерские услуги в Алматы",
     description:
       "Бухгалтерское сопровождение ИП и ТОО в Алматы: налоги, отчетность, декларации, зарплата и восстановление учета.",
+    url: "/",
     locale: "ru_KZ",
     type: "website",
     siteName: "Berestova accounting",
@@ -50,12 +62,48 @@ export const metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Бухгалтерские услуги в Алматы | Ведение ТОО и ИП",
+    description:
+      "Бухгалтерское сопровождение ИП и ТОО в Алматы: налоги, отчетность, декларации, зарплата и восстановление учета.",
+    images: ["/assets/hero-consulting.png"],
+  },
 };
 
 export default function RootLayout({ children }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "AccountingService",
+    name: "Berestova accounting",
+    url: siteUrl,
+    image: heroImageUrl,
+    logo: logoImageUrl,
+    description:
+      "Бухгалтерское сопровождение ИП и ТОО в Алматы: налоговые консультации, отчетность, декларации, зарплата, первичные документы и восстановление учета.",
+    telephone: "+77776970905",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Тастак 1 дом 11",
+      addressLocality: "Алматы",
+      addressCountry: "KZ",
+    },
+    areaServed: {
+      "@type": "City",
+      name: "Алматы",
+    },
+    priceRange: "от 18 000₸",
+  };
+
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
