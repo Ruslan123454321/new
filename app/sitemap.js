@@ -4,7 +4,7 @@ export default function sitemap() {
   return [
     {
       url: `${baseUrl}/`,
-      lastModified: new Date("2026-05-22"),
+      lastModified: new Date("2026-05-29"),
       changeFrequency: "weekly",
       priority: 1,
     },
