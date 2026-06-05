@@ -442,6 +442,142 @@ h3 {
   color: var(--white);
 }
 
+.esutd {
+  background:
+    linear-gradient(180deg, rgba(217, 243, 239, 0.62), rgba(246, 248, 247, 0.96)),
+    var(--paper);
+}
+
+.esutd-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
+  gap: 42px;
+  align-items: end;
+  padding: 38px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #102a30, #0c4b49);
+  color: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.esutd-hero h2 {
+  max-width: 760px;
+}
+
+.esutd-hero p:not(.eyebrow) {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.esutd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.esutd-card {
+  min-height: 430px;
+  padding: 28px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 38px rgba(16, 45, 50, 0.06);
+}
+
+.esutd-card > span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: var(--aqua);
+  color: var(--teal-dark);
+  font-weight: 800;
+}
+
+.esutd-card h3 {
+  line-height: 1.18;
+}
+
+.esutd-card p,
+.esutd-card li,
+.esutd-bottom p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.esutd-card p {
+  margin: 14px 0 0;
+  font-weight: 700;
+}
+
+.esutd-card ul {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.esutd-card li {
+  position: relative;
+  padding-left: 24px;
+}
+
+.esutd-card li::before {
+  content: "";
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+}
+
+.esutd-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
+  gap: 36px;
+  align-items: center;
+  margin-top: 18px;
+  padding: 34px;
+  border-radius: 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+}
+
+.esutd-bottom h3 {
+  font-size: 32px;
+  line-height: 1.12;
+}
+
+.esutd-bottom p {
+  margin: 14px 0 0;
+}
+
+.esutd-benefits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.esutd-benefits div {
+  min-height: 104px;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  background: #eef8f6;
+  color: var(--teal-dark);
+  font-weight: 800;
+  line-height: 1.35;
+}
+
 .process {
   background: #eaf5f2;
 }
@@ -901,6 +1037,8 @@ h3 {
   .hero-shell,
   .stats-grid,
   .process-layout,
+  .esutd-hero,
+  .esutd-bottom,
   .guarantees-grid,
   .contact-layout {
     grid-template-columns: 1fr;
@@ -908,6 +1046,7 @@ h3 {
 
   .service-grid,
   .review-grid,
+  .esutd-grid,
   .guarantee-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -982,8 +1121,28 @@ h3 {
 
   .service-grid,
   .review-grid,
+  .esutd-grid,
+  .esutd-benefits,
   .guarantee-list {
     grid-template-columns: 1fr;
+  }
+
+  .esutd-hero,
+  .esutd-bottom {
+    padding: 24px;
+  }
+
+  .esutd-hero p:not(.eyebrow) {
+    font-size: 16px;
+  }
+
+  .esutd-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .esutd-bottom h3 {
+    font-size: 26px;
   }
 
   .reviews-summary {
