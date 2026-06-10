@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "bersetov-accounting",
-  "account_id": "6fa591913093bff2a87f1499aef3cbcd",
+  "name": "new",
+  "account_id": "4941a5097f96a1ab4204aeaaa590c5c0",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-05-19",
   "compatibility_flags": [
@@ -15,7 +15,7 @@
   "services": [
     {
       "binding": "WORKER_SELF_REFERENCE",
-      "service": "bersetov-accounting"
+      "service": "new"
     }
   ],
   "observability": {
