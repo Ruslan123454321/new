@@ -116,6 +116,11 @@ textarea:focus-visible {
   color: var(--white);
 }
 
+.nav a {
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -138,6 +143,7 @@ textarea:focus-visible {
   border-radius: 8px;
   padding: 0 18px;
   font-weight: 800;
+  white-space: nowrap;
   transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
 }
 
@@ -202,6 +208,32 @@ textarea:focus-visible {
   color: var(--teal-dark);
   background: var(--white);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 981px) {
+  html[lang="kk"] .nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+
+  html[lang="kk"] .nav-panel {
+    gap: 16px;
+  }
+
+  html[lang="kk"] .header-button {
+    padding: 0 14px;
+  }
+
+  .header-actions {
+    padding-right: 142px;
+  }
+
+  .language-switcher {
+    position: fixed;
+    top: 21px;
+    right: 20px;
+    z-index: 15;
+  }
 }
 
 .menu-toggle {
