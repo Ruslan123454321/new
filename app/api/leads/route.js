@@ -15,8 +15,21 @@ function escapeHtml(value) {
 }
 
 function isValidKazakhstanPhone(value) {
+  return /^7\d{10}$/.test(normalizeKazakhstanPhone(value));
+}
+
+function normalizeKazakhstanPhone(value) {
   const digits = String(value || "").replace(/\D/g, "");
-  return /^7\d{10}$/.test(digits) || /^8\d{10}$/.test(digits);
+
+  if (/^\d{10}$/.test(digits)) {
+    return `7${digits}`;
+  }
+
+  if (/^8\d{10}$/.test(digits)) {
+    return `7${digits.slice(1)}`;
+  }
+
+  return digits;
 }
 
 export async function POST(request) {
@@ -39,7 +52,7 @@ export async function POST(request) {
 
   const lead = {
     name: cleanValue(body.name, 120),
-    phone: cleanValue(body.phone, 80),
+    phone: cleanValue(normalizeKazakhstanPhone(body.phone), 80),
     business: cleanValue(body.business, 80),
     message: cleanValue(body.message, 1000),
   };

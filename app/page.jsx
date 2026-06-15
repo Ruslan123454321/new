@@ -645,8 +645,21 @@ const reviews = [
 ];
 
 function isValidKazakhstanPhone(value) {
+  return /^7\d{10}$/.test(normalizeKazakhstanPhone(value));
+}
+
+function normalizeKazakhstanPhone(value) {
   const digits = String(value || "").replace(/\D/g, "");
-  return /^7\d{10}$/.test(digits) || /^8\d{10}$/.test(digits);
+
+  if (/^\d{10}$/.test(digits)) {
+    return `7${digits}`;
+  }
+
+  if (/^8\d{10}$/.test(digits)) {
+    return `7${digits.slice(1)}`;
+  }
+
+  return digits;
 }
 
 function PhoneIcon() {
@@ -770,7 +783,7 @@ export default function Home() {
         },
         body: JSON.stringify({
           name: formData.get("name"),
-          phone: formData.get("phone"),
+          phone: normalizeKazakhstanPhone(formData.get("phone")),
           business: formData.get("business"),
           message: formData.get("message"),
         }),
