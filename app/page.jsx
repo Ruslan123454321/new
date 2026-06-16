@@ -83,12 +83,12 @@ const translations = {
         text: "Быстрый старт без очередей. Помощь с кассой, банком и ЭЦП.",
       },
       {
-        title: "Ликвидация ИП / ТОО",
-        text: "Безопасное закрытие без налоговых рисков и доначислений.",
-      },
-      {
         title: "Налоговый консалтинг",
         text: "Легальная оптимизация налогов. Объясним сложные законы простым языком.",
+      },
+      {
+        title: "Ликвидация ИП / ТОО",
+        text: "Безопасное закрытие без налоговых рисков и доначислений.",
       },
     ],
     lifecycleReasonsTitle: "Почему вы выбираете нас",
@@ -303,12 +303,12 @@ const translations = {
         text: "Кезексіз жылдам старт. Касса, банк және ЭЦҚ бойынша көмек.",
       },
       {
-        title: "ЖК / ЖШС тарату",
-        text: "Салық тәуекелдері мен қосымша есептеулерсіз қауіпсіз жабу.",
-      },
-      {
         title: "Салық консалтингі",
         text: "Салықтарды заңды оңтайландыру. Күрделі заңдарды қарапайым тілмен түсіндіреміз.",
+      },
+      {
+        title: "ЖК / ЖШС тарату",
+        text: "Салық тәуекелдері мен қосымша есептеулерсіз қауіпсіз жабу.",
       },
     ],
     lifecycleReasonsTitle: "Неге бізді таңдайсыз",
@@ -520,12 +520,12 @@ const translations = {
         text: "A fast start without queues. Help with cash register, bank and digital signature.",
       },
       {
-        title: "Sole proprietor / LLP liquidation",
-        text: "Safe closure without tax risks or additional assessments.",
-      },
-      {
         title: "Tax consulting",
         text: "Legal tax optimization. We explain complex laws in simple language.",
+      },
+      {
+        title: "Sole proprietor / LLP liquidation",
+        text: "Safe closure without tax risks or additional assessments.",
       },
     ],
     lifecycleReasonsTitle: "Why you choose us",
