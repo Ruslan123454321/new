@@ -394,6 +394,10 @@ textarea:focus-visible {
   padding: 96px 0;
 }
 
+.services {
+  padding-bottom: 56px;
+}
+
 .section-heading {
   max-width: 720px;
   margin-bottom: 36px;
@@ -464,6 +468,7 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
+  margin-top: 18px;
 }
 
 .service-card {
@@ -514,131 +519,101 @@ h3 {
   color: var(--white);
 }
 
-.lifecycle-support {
-  display: grid;
-  gap: 22px;
-  margin-top: 22px;
-  padding: 34px;
-  border-radius: 8px;
-  background:
-    linear-gradient(135deg, rgba(217, 243, 239, 0.9), rgba(255, 255, 255, 0.98)),
-    var(--white);
-  border: 1px solid rgba(15, 118, 110, 0.18);
-}
-
-.lifecycle-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.7fr);
-  gap: 26px;
-  align-items: end;
-}
-
-.lifecycle-intro h3 {
-  max-width: 780px;
-  font-size: 34px;
-  line-height: 1.12;
-}
-
-.lifecycle-intro p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 18px;
-  line-height: 1.55;
-}
-
-.lifecycle-items {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.lifecycle-items article,
-.lifecycle-reason-cards article {
-  border-radius: 8px;
-  background: var(--white);
-  border: 1px solid var(--line);
-}
-
-.lifecycle-items article {
-  min-height: 172px;
-  padding: 22px;
-}
-
-.lifecycle-items h4 {
-  margin: 0 0 12px;
-  color: var(--teal-dark);
-  font-size: 18px;
-  line-height: 1.25;
-}
-
-.lifecycle-items p,
-.lifecycle-reasons p {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.58;
-}
-
-.lifecycle-reasons-panel {
-  margin-top: 18px;
+.lifecycle-card {
+  margin-top: 0;
   padding: 28px;
   border-radius: 8px;
   background: var(--white);
-  border: 1px solid rgba(15, 118, 110, 0.18);
-  box-shadow: 0 18px 44px rgba(16, 45, 50, 0.08);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 38px rgba(16, 45, 50, 0.06);
 }
 
-.lifecycle-reasons {
+.lifecycle-card > span {
+  width: 44px;
+  height: 44px;
   display: grid;
-  gap: 18px;
+  place-items: center;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: var(--aqua);
+  color: var(--teal-dark);
+  font-weight: 800;
 }
 
-.lifecycle-reason-cards {
+.lifecycle-card h3 {
+  max-width: 760px;
+  line-height: 1.18;
+}
+
+.lifecycle-card p,
+.lifecycle-card li {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.lifecycle-card p {
+  max-width: 760px;
+  margin: 14px 0 0;
+  font-weight: 700;
+}
+
+.lifecycle-card ul {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+  gap: 12px 24px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
-.lifecycle-reasons strong {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  min-height: 0;
-  padding: 12px 16px;
-  border-radius: 8px;
-  background: var(--teal-dark);
-  color: var(--white);
-  font-size: 20px;
-  line-height: 1.25;
-  box-shadow: 0 18px 42px rgba(8, 77, 74, 0.18);
+.lifecycle-card li {
+  position: relative;
+  padding-left: 24px;
 }
 
-.lifecycle-reason-cards article {
-  min-height: 150px;
-  padding: 26px;
-  border-color: rgba(15, 118, 110, 0.24);
-  background: linear-gradient(180deg, #ffffff, #f7fbfa);
-}
-
-.lifecycle-reasons span {
-  display: block;
-  margin-bottom: 12px;
-  color: var(--teal-dark);
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.16;
-}
-
-.lifecycle-reasons span::before {
+.lifecycle-card li::before {
   content: "";
-  display: block;
-  width: 44px;
-  height: 4px;
-  margin-bottom: 16px;
-  border-radius: 999px;
+  position: absolute;
+  top: 0.7em;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
   background: var(--coral);
 }
 
+.lifecycle-card li strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--teal-dark);
+}
+
+.lifecycle-card-reasons {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(15, 118, 110, 0.16);
+}
+
+.lifecycle-card-reasons h4 {
+  margin: 0 0 14px;
+  color: var(--teal-dark);
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.lifecycle-card-reasons ul {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin: 0;
+}
+
+.lifecycle-card-reasons li {
+  padding-left: 24px;
+}
+
 .esutd {
+  padding-top: 72px;
   background:
     linear-gradient(180deg, rgba(217, 243, 239, 0.62), rgba(246, 248, 247, 0.96)),
     var(--paper);
@@ -1252,7 +1227,6 @@ h3 {
   .hero-shell,
   .stats-grid,
   .process-layout,
-  .lifecycle-intro,
   .esutd-hero,
   .esutd-bottom,
   .guarantees-grid,
@@ -1261,15 +1235,9 @@ h3 {
   }
 
   .service-grid,
-  .lifecycle-items,
-  .lifecycle-reason-cards,
   .esutd-grid,
   .guarantee-list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .lifecycle-reasons strong {
-    grid-column: 1 / -1;
   }
 
   .reviews-top {
@@ -1340,38 +1308,27 @@ h3 {
     padding: 68px 0;
   }
 
+  .services {
+    padding-bottom: 40px;
+  }
+
+  .esutd {
+    padding-top: 52px;
+  }
+
   .service-grid,
-  .lifecycle-items,
-  .lifecycle-reason-cards,
   .esutd-grid,
   .esutd-benefits,
   .guarantee-list {
     grid-template-columns: 1fr;
   }
 
-  .lifecycle-support {
+  .lifecycle-card {
     padding: 22px;
   }
 
-  .lifecycle-reasons-panel {
-    padding: 22px;
-  }
-
-  .lifecycle-intro {
-    gap: 12px;
-  }
-
-  .lifecycle-intro h3 {
-    font-size: 26px;
-  }
-
-  .lifecycle-intro p {
-    font-size: 16px;
-  }
-
-  .lifecycle-items article {
-    min-height: auto;
-    padding: 20px;
+  .lifecycle-card ul {
+    grid-template-columns: 1fr;
   }
 
   .esutd-hero,

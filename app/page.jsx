@@ -91,7 +91,7 @@ const translations = {
         text: "Легальная оптимизация налогов. Объясним сложные законы простым языком.",
       },
     ],
-    lifecycleReasonsTitle: "Почему выбирают нас",
+    lifecycleReasonsTitle: "Почему вы выбираете нас",
     lifecycleReasons: [
       ["Экономия времени", "Все делаем удаленно или с минимальным вашим участием."],
       ["Безопасность", "Несем полную финансовую ответственность за свои рекомендации."],
@@ -311,7 +311,7 @@ const translations = {
         text: "Салықтарды заңды оңтайландыру. Күрделі заңдарды қарапайым тілмен түсіндіреміз.",
       },
     ],
-    lifecycleReasonsTitle: "Неге бізді таңдайды",
+    lifecycleReasonsTitle: "Неге бізді таңдайсыз",
     lifecycleReasons: [
       ["Уақыт үнемдеу", "Барлығын қашықтан немесе сіздің ең аз қатысуыңызбен жасаймыз."],
       ["Қауіпсіздік", "Ұсынымдарымыз үшін толық қаржылық жауапкершілік аламыз."],
@@ -528,7 +528,7 @@ const translations = {
         text: "Legal tax optimization. We explain complex laws in simple language.",
       },
     ],
-    lifecycleReasonsTitle: "Why clients choose us",
+    lifecycleReasonsTitle: "Why you choose us",
     lifecycleReasons: [
       ["Time savings", "We handle everything remotely or with minimal involvement from you."],
       ["Safety", "We take full financial responsibility for our recommendations."],
@@ -1000,6 +1000,31 @@ export default function Home() {
               <p>{t.servicesText}</p>
             </div>
 
+            <div className="lifecycle-card">
+              <span>05</span>
+              <h3>{t.lifecycleTitle}</h3>
+              <p>{t.lifecycleText}</p>
+              <ul>
+                {t.lifecycleItems.map((item) => (
+                  <li key={item.title}>
+                    <strong>{item.title}</strong>
+                    {item.text}
+                  </li>
+                ))}
+              </ul>
+              <div className="lifecycle-card-reasons">
+                <h4>{t.lifecycleReasonsTitle}</h4>
+                <ul>
+                  {t.lifecycleReasons.map(([title, text]) => (
+                    <li key={title}>
+                      <strong>{title}</strong>
+                      {text}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
             <div className="service-grid">
               {t.services.map((service) => (
                 <article className={`service-card ${service.featured ? "featured" : ""}`} key={service.number}>
@@ -1010,35 +1035,6 @@ export default function Home() {
                   <a href="#contacts">{service.action}</a>
                 </article>
               ))}
-            </div>
-
-            <div className="lifecycle-support">
-              <div className="lifecycle-intro">
-                <h3>{t.lifecycleTitle}</h3>
-                <p>{t.lifecycleText}</p>
-              </div>
-              <div className="lifecycle-items">
-                {t.lifecycleItems.map((item) => (
-                  <article key={item.title}>
-                    <h4>{item.title}</h4>
-                    <p>{item.text}</p>
-                  </article>
-                ))}
-              </div>
-            </div>
-
-            <div className="lifecycle-reasons-panel">
-              <div className="lifecycle-reasons" aria-label={t.lifecycleReasonsTitle}>
-                <strong>{t.lifecycleReasonsTitle}</strong>
-                <div className="lifecycle-reason-cards">
-                  {t.lifecycleReasons.map(([title, text]) => (
-                    <article key={title}>
-                      <span>{title}</span>
-                      <p>{text}</p>
-                    </article>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </section>
