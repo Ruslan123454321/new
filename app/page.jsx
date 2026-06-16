@@ -74,6 +74,28 @@ const translations = {
         action: "Проверить учет",
       },
     ],
+    lifecycleTitle: "Старт, оптимизация и закрытие бизнеса в Казахстане",
+    lifecycleText:
+      "Профессиональное бухгалтерское сопровождение на любом этапе жизни вашей компании.",
+    lifecycleItems: [
+      {
+        title: "Открытие ИП / ТОО",
+        text: "Быстрый старт без очередей. Помощь с кассой, банком и ЭЦП.",
+      },
+      {
+        title: "Ликвидация ИП / ТОО",
+        text: "Безопасное закрытие без налоговых рисков и доначислений.",
+      },
+      {
+        title: "Налоговый консалтинг",
+        text: "Легальная оптимизация налогов. Объясним сложные законы простым языком.",
+      },
+    ],
+    lifecycleReasonsTitle: "Почему выбирают нас",
+    lifecycleReasons: [
+      ["Экономия времени", "Все делаем удаленно или с минимальным вашим участием."],
+      ["Безопасность", "Несем полную финансовую ответственность за свои рекомендации."],
+    ],
     esutdEyebrow: "ЕСУТД для грузоперевозчиков",
     esutdTitle: "Комплексное сопровождение в системе транспортных документов",
     esutdText:
@@ -143,9 +165,8 @@ const translations = {
     ],
     reviewsEyebrow: "Отзывы 2GIS",
     reviewsTitle: "Клиенты отмечают четкую работу и поддержку",
-    reviewsText: "По данным карточки компании на 2GIS: рейтинг 5.0",
+    reviewsText: "По данным карточки компании на 2GIS",
     reviewsLink: "Смотреть на 2GIS",
-    reviewsRatingLabel: "Рейтинг 2GIS",
     reviews: [
       {
         author: "Enk ..",
@@ -273,6 +294,28 @@ const translations = {
         action: "Есепті тексеру",
       },
     ],
+    lifecycleTitle: "Қазақстанда бизнесті бастау, оңтайландыру және жабу",
+    lifecycleText:
+      "Компанияңыздың кез келген кезеңінде кәсіби бухгалтерлік сүйемелдеу.",
+    lifecycleItems: [
+      {
+        title: "ЖК / ЖШС ашу",
+        text: "Кезексіз жылдам старт. Касса, банк және ЭЦҚ бойынша көмек.",
+      },
+      {
+        title: "ЖК / ЖШС тарату",
+        text: "Салық тәуекелдері мен қосымша есептеулерсіз қауіпсіз жабу.",
+      },
+      {
+        title: "Салық консалтингі",
+        text: "Салықтарды заңды оңтайландыру. Күрделі заңдарды қарапайым тілмен түсіндіреміз.",
+      },
+    ],
+    lifecycleReasonsTitle: "Неге бізді таңдайды",
+    lifecycleReasons: [
+      ["Уақыт үнемдеу", "Барлығын қашықтан немесе сіздің ең аз қатысуыңызбен жасаймыз."],
+      ["Қауіпсіздік", "Ұсынымдарымыз үшін толық қаржылық жауапкершілік аламыз."],
+    ],
     esutdEyebrow: "Жүк тасымалдаушыларға арналған БТҚБЖ",
     esutdTitle: "Көлік құжаттары жүйесінде кешенді сүйемелдеу",
     esutdText:
@@ -339,9 +382,8 @@ const translations = {
     ],
     reviewsEyebrow: "2GIS пікірлері",
     reviewsTitle: "Клиенттер нақты жұмысты және қолдауды атап өтеді",
-    reviewsText: "2GIS компания карточкасы бойынша: рейтинг 5.0",
+    reviewsText: "2GIS компания карточкасы бойынша",
     reviewsLink: "2GIS-тен көру",
-    reviewsRatingLabel: "2GIS рейтингі",
     reviews: [
       {
         author: "Enk ..",
@@ -469,6 +511,28 @@ const translations = {
         action: "Check accounting",
       },
     ],
+    lifecycleTitle: "Business launch, optimization and closure in Kazakhstan",
+    lifecycleText:
+      "Professional accounting support at every stage of your company's life.",
+    lifecycleItems: [
+      {
+        title: "Sole proprietor / LLP registration",
+        text: "A fast start without queues. Help with cash register, bank and digital signature.",
+      },
+      {
+        title: "Sole proprietor / LLP liquidation",
+        text: "Safe closure without tax risks or additional assessments.",
+      },
+      {
+        title: "Tax consulting",
+        text: "Legal tax optimization. We explain complex laws in simple language.",
+      },
+    ],
+    lifecycleReasonsTitle: "Why clients choose us",
+    lifecycleReasons: [
+      ["Time savings", "We handle everything remotely or with minimal involvement from you."],
+      ["Safety", "We take full financial responsibility for our recommendations."],
+    ],
     esutdEyebrow: "ESUTD for freight carriers",
     esutdTitle: "Complete support in the transport document system",
     esutdText:
@@ -535,9 +599,8 @@ const translations = {
     ],
     reviewsEyebrow: "2GIS reviews",
     reviewsTitle: "Clients note clear work and support",
-    reviewsText: "According to the company card on 2GIS: rating 5.0",
+    reviewsText: "According to the company card on 2GIS",
     reviewsLink: "View on 2GIS",
-    reviewsRatingLabel: "2GIS rating",
     reviews: [
       {
         author: "Enk ..",
@@ -948,6 +1011,35 @@ export default function Home() {
                 </article>
               ))}
             </div>
+
+            <div className="lifecycle-support">
+              <div className="lifecycle-intro">
+                <h3>{t.lifecycleTitle}</h3>
+                <p>{t.lifecycleText}</p>
+              </div>
+              <div className="lifecycle-items">
+                {t.lifecycleItems.map((item) => (
+                  <article key={item.title}>
+                    <h4>{item.title}</h4>
+                    <p>{item.text}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+
+            <div className="lifecycle-reasons-panel">
+              <div className="lifecycle-reasons" aria-label={t.lifecycleReasonsTitle}>
+                <strong>{t.lifecycleReasonsTitle}</strong>
+                <div className="lifecycle-reason-cards">
+                  {t.lifecycleReasons.map(([title, text]) => (
+                    <article key={title}>
+                      <span>{title}</span>
+                      <p>{text}</p>
+                    </article>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1039,22 +1131,19 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="reviews-summary" aria-label={t.reviewsRatingLabel}>
-              <strong>5.0</strong>
-              <span>★★★★★</span>
-            </div>
-
-            <div className="review-grid">
-              {t.reviews.map((review, index) => (
-                <blockquote className={index > 2 ? "mobile-hidden-review" : ""} key={review.author}>
-                  <div className="review-card-head">
-                    <span>{review.label}</span>
-                    <small>{review.date}</small>
-                  </div>
-                  <p>{review.text}</p>
-                  <cite>{review.author}</cite>
-                </blockquote>
-              ))}
+            <div className="review-marquee" aria-label={t.reviewsTitle}>
+              <div className="review-track">
+                {[...t.reviews, ...t.reviews].map((review, index) => (
+                  <blockquote aria-hidden={index >= t.reviews.length} key={`${review.author}-${index}`}>
+                    <div className="review-card-head">
+                      <span>{review.label}</span>
+                      <small>{review.date}</small>
+                    </div>
+                    <p>{review.text}</p>
+                    <cite>{review.author}</cite>
+                  </blockquote>
+                ))}
+              </div>
             </div>
           </div>
         </section>
