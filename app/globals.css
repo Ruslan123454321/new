@@ -622,7 +622,7 @@ h3 {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.82fr);
   gap: 42px;
-  align-items: end;
+  align-items: center;
   padding: 38px;
   border-radius: 8px;
   background: linear-gradient(135deg, #102a30, #0c4b49);
