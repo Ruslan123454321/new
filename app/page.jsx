@@ -1000,6 +1000,18 @@ export default function Home() {
               <p>{t.servicesText}</p>
             </div>
 
+            <div className="service-grid">
+              {t.services.map((service) => (
+                <article className={`service-card ${service.featured ? "featured" : ""}`} key={service.number}>
+                  <div className="card-icon">{service.number}</div>
+                  <h3>{service.title}</h3>
+                  <p>{service.text}</p>
+                  {service.price ? <span>{service.price}</span> : null}
+                  <a href="#contacts">{service.action}</a>
+                </article>
+              ))}
+            </div>
+
             <div className="lifecycle-card">
               <span>05</span>
               <h3>{t.lifecycleTitle}</h3>
@@ -1023,18 +1035,6 @@ export default function Home() {
                   ))}
                 </ul>
               </div>
-            </div>
-
-            <div className="service-grid">
-              {t.services.map((service) => (
-                <article className={`service-card ${service.featured ? "featured" : ""}`} key={service.number}>
-                  <div className="card-icon">{service.number}</div>
-                  <h3>{service.title}</h3>
-                  <p>{service.text}</p>
-                  {service.price ? <span>{service.price}</span> : null}
-                  <a href="#contacts">{service.action}</a>
-                </article>
-              ))}
             </div>
           </div>
         </section>

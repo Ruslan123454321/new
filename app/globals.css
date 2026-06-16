@@ -468,7 +468,6 @@ h3 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 18px;
-  margin-top: 18px;
 }
 
 .service-card {
@@ -520,7 +519,7 @@ h3 {
 }
 
 .lifecycle-card {
-  margin-top: 0;
+  margin-top: 18px;
   padding: 28px;
   border-radius: 8px;
   background: var(--white);
